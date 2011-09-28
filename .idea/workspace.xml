@@ -14,10 +14,7 @@
     <option name="historyRevisionsNumber" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616d15dc-95aa-44bc-9e03-33315dceb854" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/taglib/grails/plugin/gwo/WebsiteOptimizerTagLib.groovy" afterPath="$PROJECT_DIR$/grails-app/taglib/grails/plugin/gwo/WebsiteOptimizerTagLib.groovy" />
-    </list>
+    <list default="true" id="616d15dc-95aa-44bc-9e03-33315dceb854" name="Default" comment="" />
     <ignored path="website-optimizer.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
@@ -88,7 +85,7 @@
       <file leaf-file-name="WebsiteOptimizerTagLib.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/taglib/grails/plugin/gwo/WebsiteOptimizerTagLib.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="0" selection-start="2351" selection-end="2351" vertical-scroll-proportion="0.54179895">
+            <state line="92" column="93" selection-start="2775" selection-end="2775" vertical-scroll-proportion="1.4603175">
               <folding />
             </state>
           </provider>
@@ -489,7 +486,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/taglib/grails/plugin/gwo/WebsiteOptimizerTagLib.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="0" selection-start="2351" selection-end="2351" vertical-scroll-proportion="0.54179895">
+        <state line="92" column="93" selection-start="2775" selection-end="2775" vertical-scroll-proportion="1.4603175">
           <folding />
         </state>
       </provider>

@@ -1,0 +1,27 @@
+h1. include
+
+h2. Purpose
+
+Embeds the necessary javascript headers to identify pages within Google Website Optimizer.
+
+h2. Examples
+
+{code:xml}
+
+<!-- includes tags for multivariate experiments -->
+<gwo:include multi='true'/>
+
+<!-- identifies page as a control page in an a/b Experiment -->
+<gwo:include control='true'/> 
+
+<!-- identifies page as a test page in an a/b Experiment -->
+<gwo:include variation='true'/>
+
+{code}
+
+h2. Description
+
+Attributes
+
+* @value@ (required) - The caption of the button and name of action when not explicitly defined.
+* @action@ (optional) - The name of the action to be executed, otherwise it is derived from the value.
