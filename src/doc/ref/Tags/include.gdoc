@@ -17,6 +17,12 @@ h2. Examples
 <!-- identifies page as a test page in an a/b Experiment -->
 <gwo:include variation='true'/>
 
+<!-- you can set the experiment and GWO accounts in this tag -->
+<gwo:include account="UA-93499449-1" experiment="499449494" multi="true"/>
+
+<!-- you can also define domains used by the a/b experiment so it only counts for those -->
+<gwo:include multi='true' domain='blah.example.com'/>
+
 {code}
 
 h2. Description
