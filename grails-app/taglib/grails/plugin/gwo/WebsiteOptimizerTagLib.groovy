@@ -20,7 +20,7 @@ class WebsiteOptimizerTagLib {
 			throw new IllegalArgumentException("No Experiment specified in taglib or configuration file")
 		}
 
-		if (attrs.control)
+		if (attrs.control || attrs.multi )
 		{
 			out << """<!-- Google Website Optimizer Control Script -->
 <script>
@@ -37,7 +37,7 @@ d.write('<sc'+'ript src="'+
 <!-- End of Google Website Optimizer Control Script -->"""
 		}
 
-		if (attrs.tracking)
+		if (attrs.variable || attrs.multi )
 		{
 			out << """<!-- Google Website Optimizer Tracking Script -->
 <script type="text/javascript">
