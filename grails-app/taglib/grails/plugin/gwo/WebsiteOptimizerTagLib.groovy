@@ -6,7 +6,7 @@ class WebsiteOptimizerTagLib {
 
 	def grailsApplication
 
-	def includes = {
+	def includes = { attrs ->
 
 		def account = attrs.account ?: grailsApplication.config.gwo.account
 		if (!account)
