@@ -25,3 +25,4 @@ log4j = {
 
 grailsApplication.config.gwo.account = 'UA-blah'
 grailsApplication.config.gwo.defaultExperiment = 'blah'
+grails.doc.authors = 'Tomas Lin'
