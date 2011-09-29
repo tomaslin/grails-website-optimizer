@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>2.1. Setting up an AB Test</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
+    </head>
+    <body class="body">
+    This step assumes that you already have 2 variations of your pages that you wish to test. In Grails terms, these would be two separate actions or views.<p class="paragraph"/><h3>Set up an experiment</h3>
+<ul class="star">
+<li>Login to your GWO account and select Experiments &#62; Create another experiment</li>
+<li>Choose A/B Experiment - The simplest way to start testing fast</li>
+<li>Run through the checklist and click on "I've completed the steps above checkbox"</li>
+<li>Click on "Create"</li>
+<li>Fill in all the fields in the page</li>
+<li>Click on "Continue"</li>
+<li>Select 'You will install and validate the JavaScript tags'</li>
+</ul><p class="paragraph"/><h3>Get your account and experiment ids.</h3><p class="paragraph"/>At this point, you will see a few JavaScript tags that google requires you to embed on your site.<p class="paragraph"/>The two bits of information you want is your account identifier and the experiment identifyer.<p class="paragraph"/>Under 2. Variation Pages, you will see a Tracking Script that looks like the following<p class="paragraph"/><div class="code"><pre>&#60;!&#45;&#45; Google Website Optimizer Tracking Script &#45;&#45;&#62;
+&#60;script type=<span class="java&#45;quote">"text/javascript"</span>&#62;
+  <span class="java&#45;keyword">var</span> _gaq = _gaq || &#91;&#93;;
+  _gaq.push(&#91;'gwo._setAccount', 'UA&#45;25983867&#45;2'&#93;);
+  _gaq.push(&#91;'gwo._trackPageview', '/0156495775/test'&#93;);
+  (function() &#123;
+    <span class="java&#45;keyword">var</span> ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = <span class="java&#45;keyword">true</span>;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google&#45;analytics.com/ga.js';
+    <span class="java&#45;keyword">var</span> s = document.getElementsByTagName('script')&#91;0&#93;; s.parentNode.insertBefore(ga, s);
+  &#125;)();
+&#60;/script&#62;
+&#60;!&#45;&#45; End of Google Website Optimizer Tracking Script &#45;&#45;&#62;</pre></div><p class="paragraph"/>Your account identifier is the string set in this line:<p class="paragraph"/><div class="code"><pre>_gaq.push(&#91;'gwo._setAccount', 'UA&#45;25983867&#45;2'&#93;);</pre></div><p class="paragraph"/>In this example, the account is 'UA-2598386702'<p class="paragraph"/>The experiment's id is the string set in this line:<p class="paragraph"/><div class="code"><pre>_gaq.push(&#91;'gwo._trackPageview', '/0156495775/test'&#93;);</pre></div><p class="paragraph"/>In this example, your experiment id would be anything before /test, so for <strong class="bold">0156495775</strong>/test, the experiment id is 0156495775<p class="paragraph"/><h3>Add your tags</h3><p class="paragraph"/>On the control page, you want to add the following tag after the &#60;head&#62;<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:include control='true' account='UA&#45;25983867&#45;2' experiment='0156495775'/&#62;</span></pre></div><p class="paragraph"/>On your variation pages, you want to include the following tags:<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:include variation='true' account='UA&#45;25983867&#45;2' experiment='0156495775'/&#62;</span></pre></div><p class="paragraph"/>And on your conversion pages, you want the following:<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:conversion account='UA&#45;25983867&#45;2' experiment='0156495775'/&#62;</span></pre></div><p class="paragraph"/><h3>Validate your pages. </h3><p class="paragraph"/>At this point, your AB test is set and ready to track. You can validate your pages by saving a local copy of your application page's HTML source.<p class="paragraph"/>Once your pages are validated, save your AB test and google website optimizer will begin serving alternatives whenever your visitors come to the original page.<p class="paragraph"/>
+
+    </body>
+</html>

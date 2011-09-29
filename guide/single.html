@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>website-optimizer 0.1 - Reference Documentation</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Style" charset="utf-8"/>
+        <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8" />
+    </head>
+    <body class="body">
+        <div id="header">
+            <div class="images"><br/><br/>
+                <a href="http://grails.org" target="_blank"><img alt="The Grails Framework" src="../img/grails.png" border="0"/></a>
+                <span style="right:30px; top:20px; position:absolute;">
+                    <a href="../index.html" target="_top">Frames</a> | <a href="index.html" target="_top">No Frames</a><br/><br/>
+                    <a href="http://springsource.com" target="_blank"><img alt="SpringSource - A Division of VMware" src="../img/springsource-logo.png" border="0"/></a>
+                </span>
+            </div>
+            <div class="message">website-optimizer</div>
+            <h1>website-optimizer - Reference Documentation</h1>
+            <p><strong>Authors:</strong> </p>
+            <p><strong>Version:</strong> 0.1</p>
+            <em></em>
+        </div>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <div class="tocItem" style="margin-left:0px"><a href="#1. Introduction">1. Introduction</a></div><div class="tocItem" style="margin-left:0px"><a href="#2. Getting Started">2. Getting Started</a></div><div class="tocItem" style="margin-left:10px"><a href="#2.1. Setting up an AB Test">2.1. Setting up an AB Test</a></div><div class="tocItem" style="margin-left:10px"><a href="#2.2. Setting up a Multi-variate Test">2.2. Setting up a Multi-variate Test</a></div><div class="tocItem" style="margin-left:0px"><a href="#3. Cookbook">3. Cookbook</a></div><div class="tocItem" style="margin-left:0px"><a href="#4. Further Reading">4. Further Reading</a></div>
+        </div>
+        <div id="content">
+            <h1><a name="1. Introduction">1. Introduction</a></h1>This plugin integrates <a href="http://www.google.com/websiteoptimizer" target="blank">Google Website Optimizer</a> into Grails applications to make A/B and multivariate testing easier.<p class="paragraph"/>It is best used for testing changes in the view layer, as Google Website Optimizer relies heavily on JavaScript.<p class="paragraph"/>The plugin does not provide any reporting integration. You would still need to access your google analytics account to see the results of your A/B tests and to create new experiments<p class="paragraph"/><h4>Release History</h4>
+<ul class="star">
+<li>TBD</li>
+<ul class="star">
+<li>initial 0.1 release</li>
+</ul></ul><p class="paragraph"/><h1><a name="2. Getting Started">2. Getting Started</a></h1>This plugin wraps the JavaScript code used by Google Website Optimizer (GWO) into Grails tags under the namespace gwo.<p class="paragraph"/>Before you start, you need to have a <a href="http://www.google.com/analytics/" target="blank">Google Analytics</a> account set up for your site and enable website optimizer by visiting the <a href="http://www.google.com/websiteoptimizer/" target="blank">GWO site</a>.<p class="paragraph"/>For a discussion on when to use an AB test and when to use an Multivariate test, please refer to the resources from the further reading. 
+<h2><a name="2.1. Setting up an AB Test">2.1. Setting up an AB Test</a></h2>This step assumes that you already have 2 variations of your pages that you wish to test. In Grails terms, these would be two separate actions or views.<p class="paragraph"/><h3>Set up an experiment</h3>
+<ul class="star">
+<li>Login to your GWO account and select Experiments &#62; Create another experiment</li>
+<li>Choose A/B Experiment - The simplest way to start testing fast</li>
+<li>Run through the checklist and click on "I've completed the steps above checkbox"</li>
+<li>Click on "Create"</li>
+<li>Fill in all the fields in the page</li>
+<li>Click on "Continue"</li>
+<li>Select 'You will install and validate the JavaScript tags'</li>
+</ul><p class="paragraph"/><h3>Get your account and experiment ids.</h3><p class="paragraph"/>At this point, you will see a few JavaScript tags that google requires you to embed on your site.<p class="paragraph"/>The two bits of information you want is your account identifier and the experiment identifyer.<p class="paragraph"/>Under 2. Variation Pages, you will see a Tracking Script that looks like the following<p class="paragraph"/><div class="code"><pre>&#60;!&#45;&#45; Google Website Optimizer Tracking Script &#45;&#45;&#62;
+&#60;script type=<span class="java&#45;quote">"text/javascript"</span>&#62;
+  <span class="java&#45;keyword">var</span> _gaq = _gaq || &#91;&#93;;
+  _gaq.push(&#91;'gwo._setAccount', 'UA&#45;25983867&#45;2'&#93;);
+  _gaq.push(&#91;'gwo._trackPageview', '/0156495775/test'&#93;);
+  (function() &#123;
+    <span class="java&#45;keyword">var</span> ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = <span class="java&#45;keyword">true</span>;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google&#45;analytics.com/ga.js';
+    <span class="java&#45;keyword">var</span> s = document.getElementsByTagName('script')&#91;0&#93;; s.parentNode.insertBefore(ga, s);
+  &#125;)();
+&#60;/script&#62;
+&#60;!&#45;&#45; End of Google Website Optimizer Tracking Script &#45;&#45;&#62;</pre></div><p class="paragraph"/>Your account identifier is the string set in this line:<p class="paragraph"/><div class="code"><pre>_gaq.push(&#91;'gwo._setAccount', 'UA&#45;25983867&#45;2'&#93;);</pre></div><p class="paragraph"/>In this example, the account is 'UA-2598386702'<p class="paragraph"/>The experiment's id is the string set in this line:<p class="paragraph"/><div class="code"><pre>_gaq.push(&#91;'gwo._trackPageview', '/0156495775/test'&#93;);</pre></div><p class="paragraph"/>In this example, your experiment id would be anything before /test, so for <strong class="bold">0156495775</strong>/test, the experiment id is 0156495775<p class="paragraph"/><h3>Add your tags</h3><p class="paragraph"/>On the control page, you want to add the following tag after the &#60;head&#62;<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:include control='true' account='UA&#45;25983867&#45;2' experiment='0156495775'/&#62;</span></pre></div><p class="paragraph"/>On your variation pages, you want to include the following tags:<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:include variation='true' account='UA&#45;25983867&#45;2' experiment='0156495775'/&#62;</span></pre></div><p class="paragraph"/>And on your conversion pages, you want the following:<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:conversion account='UA&#45;25983867&#45;2' experiment='0156495775'/&#62;</span></pre></div><p class="paragraph"/><h3>Validate your pages. </h3><p class="paragraph"/>At this point, your AB test is set and ready to track. You can validate your pages by saving a local copy of your application page's HTML source.<p class="paragraph"/>Once your pages are validated, save your AB test and google website optimizer will begin serving alternatives whenever your visitors come to the original page.<p class="paragraph"/>
+<h2><a name="2.2. Setting up a Multi-variate Test">2.2. Setting up a Multi-variate Test</a></h2>This type of tests work better with scenarios where there are pieces of code that you wish to change within the same page, or changes scattered around several pages.<p class="paragraph"/>In Grails terms, these work best when you have to make changes to things that would normally go into templates.<p class="paragraph"/><h3>Set up an experiment</h3>
+<ul class="star">
+<li>Login to your GWO account and select Experiments &#62; Create another experiment</li>
+<li>Choose Multivariate Experiment - The most robust way to test lots of ideas</li>
+<li>Run through the checklist and click on "I've completed the steps above checkbox"</li>
+<li>Click on "Create"</li>
+<li>Fill in all the fields in the page</li>
+<li>Click on "Continue"</li>
+<li>Select 'You will install and validate the JavaScript tags'</li>
+</ul><p class="paragraph"/><h3>Get your account and experiment ids.</h3><p class="paragraph"/>This procedure is the same as the one for A/B tests above except the control and tracking scripts are now merged into one on the page.<p class="paragraph"/><h3>Add your tags</h3><p class="paragraph"/><h4>Add tracking tags</h4><p class="paragraph"/>On your main testing page, you want to set an include tag with the multi section set to true<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:include account='UA&#45;25983867&#45;2' experiment='0156495775'/&#62;</span><p class="paragraph"/>And on your conversion pages, you want the following:<p class="paragraph"/><div class=<span class="xml&#45;quote">"code"</span>><pre><div class=<span class="xml&#45;quote">"error"</span>>code: null</div>
+<span class="xml&#45;tag">&#60;gwo:conversion account='UA&#45;25983867&#45;2' experiment='0156495775'/&#62;</span></pre></div><p class="paragraph"/><h4>Define sections</h4><p class="paragraph"/>What makes a multivariate test different than a standard A/B test is that GWO allows you to define alternative content for individual sections on the page. You then create combinations of these alternatives within your tests to see which ones perform best.<p class="paragraph"/>To define a section to be tested, simply give it a name and surround it with the gwo:section tag. For example<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:section name='bookingForm'&#62;</span>
+   Booking Form
+   <span class="xml&#45;tag">&#60;g:include controller=<span class="xml&#45;quote">"booking"</span> action=<span class="xml&#45;quote">"make"</span>/&#62;</span>
+<span class="xml&#45;tag">&#60;/gwo:section&#62;</span></pre></div><p class="paragraph"/><h3>Validate your pages. </h3><p class="paragraph"/>You can validate your pages by saving a local copy of your application page's HTML source.<p class="paragraph"/>At this point, you have identified the sections on your page you wish modify for multivariate testing.<p class="paragraph"/>You can use the tools provided by Website optimizer to create and modify variations at this point.<p class="paragraph"/>Within GWO, you can now define alternatives for the different sections you wish to test. Please refer to one of the books pointed in the Further reading section for how to use this feature.
+<h1><a name="3. Cookbook">3. Cookbook</a></h1><h2>Coming soon</h2><h1><a name="4. Further Reading">4. Further Reading</a></h1><h2>Books</h2>
+<ul class="star">
+<li><a href="http://www.amazon.com/gp/product/0470290633/ref=as_li_ss_tl?ie=UTF8&tag=misa09-20&linkCode=as2&camp=217145&creative=399369&creativeASIN=0470290633" target="blank">Always Be Testing:The Complete Guide To Google Website Optimizer</a></li>
+<li><a href="http://www.amazon.com/gp/product/0470174625/ref=as_li_ss_tl?ie=UTF8&tag=misa09-20&linkCode=as2&camp=217145&creative=399369&creativeASIN=0470174625" target="blank">Landing Page Optimization</a></li>
+</ul><p class="paragraph"/><h2>Resources</h2>
+<ul class="star">
+<li><a href="http://www.smashingmagazine.com/2010/06/24/the-ultimate-guide-to-a-b-testing/" target="blank">The Ultimate Guide To A/B Testing</a> from Smashing Magazine</li>
+<li><a href="http://elem.com/~btilly/effective-ab-testing/" target="blank">Effective A/B Testing</a> by Ben Tilly</li>
+<li><a href="http://vanity.labnotes.org/rails.html" target="blank">Vanity</a> and <a href="http://www.bingocardcreator.com/abingo" target="blank">A/Bingo</a> are A/B testing frameworks from the Rails world.</li>
+<li><a href="http://www.optimizely.com/" target="blank">Optimizely</a> and <a href="http://visualwebsiteoptimizer.com/" target="blank">Visual Website Optimizer</a> provide Wysywyg editing support.</li>
+</ul><p class="paragraph"/>
+        </div>
+        <div id="footer">
+             
+        </div>
+    </body>
+</html>

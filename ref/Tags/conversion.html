@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>website-optimizer 0.1 - Reference Documentation</title>
+        <link rel="stylesheet" href="../../css/ref.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
+    </head>
+    <body class="body">
+    <h1>Conversion</h1><p class="paragraph"/><h2>Purpose</h2><p class="paragraph"/>Tracks a conversion event within Google Website Optimizer.<p class="paragraph"/><h2>Examples</h2><p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:conversion account=<span class="xml&#45;quote">"UA&#45;93499449&#45;1"</span> experiment=<span class="xml&#45;quote">"499449494"</span>/&#62;</span><p class="paragraph"/><span class="xml&#45;comment">&#60;!&#45;&#45; You can also make this into a JavaScript function &#45;&#45;&#62;
+<span class="xml&#45;tag">&#60;gwo:conversion account=<span class="xml&#45;quote">"UA&#45;93499449&#45;1"</span> experiment=<span class="xml&#45;quote">"499449494"</span> functionName=<span class="xml&#45;quote">"trackConversion"</span>/&#62;</span><p class="paragraph"/>&#60;!&#45;&#45; Only track a conversion after the user has been on a page for a certain amount of time, time is in milliseconds &#45;&#45;&#62;</span>
+<span class="xml&#45;tag">&#60;gwo:conversion account=<span class="xml&#45;quote">"UA&#45;93499449&#45;1"</span> experiment=<span class="xml&#45;quote">"499449494"</span> time=<span class="xml&#45;quote">"5000"</span>/&#62;</span></pre></div><p class="paragraph"/><h2>Description</h2><p class="paragraph"/>Attributes
+<ul class="star">
+<li><code>account</code>(optional) - overrides the account used, if not set, uses gwo.account defined in config.groovy</li>
+<li><code>experiment</code>(optional) - specifies the experiment to test, if not set, uses gwo.defaultExperiment defined in config.groovy</li>
+<li><code>functionName</code>(optional) - when specified, wraps the conversion event into a javascript function. This is useful when you want the conversion event to be triggered on a button click.</li>
+<li><code>time</code>(optional) - when specified, only fires the conversion event after the user has been on the page for this amount of time.</li>
+</ul><p class="paragraph"/>
+    </body>
+</html>

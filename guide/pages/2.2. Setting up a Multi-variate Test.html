@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>2.2. Setting up a Multi-variate Test</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
+    </head>
+    <body class="body">
+    This type of tests work better with scenarios where there are pieces of code that you wish to change within the same page, or changes scattered around several pages.<p class="paragraph"/>In Grails terms, these work best when you have to make changes to things that would normally go into templates.<p class="paragraph"/><h3>Set up an experiment</h3>
+<ul class="star">
+<li>Login to your GWO account and select Experiments &#62; Create another experiment</li>
+<li>Choose Multivariate Experiment - The most robust way to test lots of ideas</li>
+<li>Run through the checklist and click on "I've completed the steps above checkbox"</li>
+<li>Click on "Create"</li>
+<li>Fill in all the fields in the page</li>
+<li>Click on "Continue"</li>
+<li>Select 'You will install and validate the JavaScript tags'</li>
+</ul><p class="paragraph"/><h3>Get your account and experiment ids.</h3><p class="paragraph"/>This procedure is the same as the one for A/B tests above except the control and tracking scripts are now merged into one on the page.<p class="paragraph"/><h3>Add your tags</h3><p class="paragraph"/><h4>Add tracking tags</h4><p class="paragraph"/>On your main testing page, you want to set an include tag with the multi section set to true<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:include account='UA&#45;25983867&#45;2' experiment='0156495775'/&#62;</span><p class="paragraph"/>And on your conversion pages, you want the following:<p class="paragraph"/><div class=<span class="xml&#45;quote">"code"</span>><pre><div class=<span class="xml&#45;quote">"error"</span>>code: null</div>
+<span class="xml&#45;tag">&#60;gwo:conversion account='UA&#45;25983867&#45;2' experiment='0156495775'/&#62;</span></pre></div><p class="paragraph"/><h4>Define sections</h4><p class="paragraph"/>What makes a multivariate test different than a standard A/B test is that GWO allows you to define alternative content for individual sections on the page. You then create combinations of these alternatives within your tests to see which ones perform best.<p class="paragraph"/>To define a section to be tested, simply give it a name and surround it with the gwo:section tag. For example<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:section name='bookingForm'&#62;</span>
+   Booking Form
+   <span class="xml&#45;tag">&#60;g:include controller=<span class="xml&#45;quote">"booking"</span> action=<span class="xml&#45;quote">"make"</span>/&#62;</span>
+<span class="xml&#45;tag">&#60;/gwo:section&#62;</span></pre></div><p class="paragraph"/><h3>Validate your pages. </h3><p class="paragraph"/>You can validate your pages by saving a local copy of your application page's HTML source.<p class="paragraph"/>At this point, you have identified the sections on your page you wish modify for multivariate testing.<p class="paragraph"/>You can use the tools provided by Website optimizer to create and modify variations at this point.<p class="paragraph"/>Within GWO, you can now define alternatives for the different sections you wish to test. Please refer to one of the books pointed in the Further reading section for how to use this feature.
+
+    </body>
+</html>
