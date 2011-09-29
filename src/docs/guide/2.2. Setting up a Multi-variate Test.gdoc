@@ -23,7 +23,7 @@ h4. Add tracking tags
 On your main testing page, you want to set an include tag with the multi section set to true
 
 {code:xml}
-<gwo:include account='UA-25983867-2' experiment='0156495775'/>
+<gwo:includes account='UA-25983867-2' experiment='0156495775' multi='true'/>
 {code}
 
 And on your conversion pages, you want the following:

@@ -54,13 +54,13 @@ h3. Add your tags
 On the control page, you want to add the following tag after the <head>
 
 {code:xml}
-<gwo:include control='true' account='UA-25983867-2' experiment='0156495775'/>
+<gwo:includes control='true' account='UA-25983867-2' experiment='0156495775'/>
 {code}
 
 On your variation pages, you want to include the following tags:
 
 {code:xml}
-<gwo:include variation='true' account='UA-25983867-2' experiment='0156495775'/>
+<gwo:includes account='UA-25983867-2' experiment='0156495775'/>
 {code}
 
 And on your conversion pages, you want the following:

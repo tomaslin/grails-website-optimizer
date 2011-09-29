@@ -1,0 +1,33 @@
+h1. includes
+
+h2. Purpose
+
+Embeds the necessary javascript headers to identify pages within Google Website Optimizer.
+
+h2. Examples
+
+{code:xml}
+
+
+<!-- identifies page as a test page -  -->
+<gwo:include/>
+
+<!-- includes tags for multivariate experiments -->
+<gwo:include multi='true'/>
+
+<!-- identifies page as a control page in an a/b Experiment -->
+<gwo:include control='true'/>
+
+<!-- you can set the experiment and GWO account in this tag -->
+<gwo:include account="UA-93499449-1" experiment="499449494" multi="true"/>
+
+{code}
+
+h2. Description
+
+Attributes
+
+* @control@ (optional) - Includes the tags of a A/B test control. If not specified, outputs the tag for a variation
+* @multi@ (optional) - Includes the tags for a control and tracking tag for multivariate tests. If not specified, outputs the tag for a variation.
+* @account@(optional) - overrides the account used, if not set, uses gwo.account defined in config.groovy
+* @experiment@(optional) - specifies the experiment to test, if not set, uses gwo.defaultExperiment defined in config.groovy
