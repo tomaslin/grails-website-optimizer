@@ -15,20 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="616d15dc-95aa-44bc-9e03-33315dceb854" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/grails/plugin/gwo/WebsiteOptimizerTagLibSpec.groovy" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/grails/plugin/gwo/WebsiteOptimizerTagLibTests.groovy" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/docs/ref/Tags/include.gdoc" afterPath="$PROJECT_DIR$/src/docs/ref/Tags/includes.gdoc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebsiteOptimizerGrailsPlugin.groovy" afterPath="$PROJECT_DIR$/WebsiteOptimizerGrailsPlugin.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application.properties" afterPath="$PROJECT_DIR$/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/taglib/grails/plugin/gwo/WebsiteOptimizerTagLib.groovy" afterPath="$PROJECT_DIR$/grails-app/taglib/grails/plugin/gwo/WebsiteOptimizerTagLib.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/docs/guide/2.1. Setting up an AB Test.gdoc" afterPath="$PROJECT_DIR$/src/docs/guide/2.1. Setting up an AB Test.gdoc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/docs/guide/2.2. Setting up a Multi-variate Test.gdoc" afterPath="$PROJECT_DIR$/src/docs/guide/2.2. Setting up a Multi-variate Test.gdoc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/docs/guide/3. Cookbook.gdoc" afterPath="$PROJECT_DIR$/src/docs/guide/3. Cookbook.gdoc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/docs/guide/4. Further Reading.gdoc" afterPath="$PROJECT_DIR$/src/docs/guide/4. Further Reading.gdoc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website-optimizer-grailsPlugins.iml" afterPath="$PROJECT_DIR$/website-optimizer-grailsPlugins.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website-optimizer.iml" afterPath="$PROJECT_DIR$/website-optimizer.iml" />
     </list>
     <ignored path="website-optimizer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -178,7 +165,7 @@
       <file leaf-file-name="WebsiteOptimizerGrailsPlugin.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebsiteOptimizerGrailsPlugin.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="21" selection-start="400" selection-end="400" vertical-scroll-proportion="0.13551402">
+            <state line="9" column="41" selection-start="388" selection-end="388" vertical-scroll-proportion="0.11214953">
               <folding />
             </state>
           </provider>
@@ -953,7 +940,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebsiteOptimizerGrailsPlugin.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="21" selection-start="400" selection-end="400" vertical-scroll-proportion="0.13551402">
+        <state line="9" column="41" selection-start="388" selection-end="388" vertical-scroll-proportion="0.11214953">
           <folding />
         </state>
       </provider>
