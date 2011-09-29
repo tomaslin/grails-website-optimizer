@@ -5,9 +5,7 @@ Often, we want a conversion event to fire based on a button being clicked on a p
 The plugin offers a property within the conversion tag that would wrap the conversion event in a javaScript function.
 
 {code:xml}
-
 <gwo:conversion functionName="trackConversion" account="UA-..." experiment="..."/>
-
 {code}
 
 In your button or link, you can then do the following:
@@ -28,27 +26,23 @@ Create a div that will contain the view you want to load.
 
 Use sections to define the an alternative,
 
-{code}
+{code:xml}
 <gwo:section name="setAlternative">
     <script> var alternative = 'bookingForm'; </script>
 </gwo:section>
 {code}
 
-Create an Ajax block to load content based on the selected alternative. This should live outside of the gwo:section blocks
+Create an Ajax block to load content based on the selected alternative. This should live outside of the gwo:section blocks.
 
 {code}
-
-<script>
 $(document).ready(function() {
 	if( alternative == 'bookingForm' ){
-		<g:remoteFunction action="show" id="1" update="bookingForm"/>
+		${ remoteFunction( action : "show", id : "1", update="bookingForm" ) }
 	} else if( alternative == 'bookingForm2' ){
-		<g:remoteFunction action="show2" id="1" update="bookingForm"/>
+		${ remoteFunction( action : "showAlternate", id : "1", update="bookingForm" ) }
 	}
 });
-</script>
-
-{/code}
+{code}
 
 Even though this means an additional request is called on the page, it means that you don't have to load your page alternatives on page start.
 
@@ -56,7 +50,11 @@ You can use a similar technique to toggle CSS files that are optimized by UI-per
 
 h3. Setting Conversions based on time On Page
 
+The conversion tag also supports a time parameter. If set, if will only track the conversion if the user has been in the page for the amount of milliseconds specified.
 
+{code:xml}
+   <gwo:conversion time="4000" experiment="489048390" account="UA-4389484"/>
+{code}
 
 h3. Dynamic URLs for A/B tests
 

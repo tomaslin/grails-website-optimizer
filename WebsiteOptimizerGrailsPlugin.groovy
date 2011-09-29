@@ -19,7 +19,7 @@ This plugin provides tags to easily integrate google website optimizer experimen
 '''
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/website-optimizer"
+    def documentation = "http://tomaslin.github.com/grails-website-optimizer/"
 
     def doWithWebDescriptor = { xml ->
     }

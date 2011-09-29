@@ -16,6 +16,8 @@
   <component name="ChangeListManager">
     <list default="true" id="616d15dc-95aa-44bc-9e03-33315dceb854" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebsiteOptimizerGrailsPlugin.groovy" afterPath="$PROJECT_DIR$/WebsiteOptimizerGrailsPlugin.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/docs/guide/1. Introduction.gdoc" afterPath="$PROJECT_DIR$/src/docs/guide/1. Introduction.gdoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/docs/guide/3. Cookbook.gdoc" afterPath="$PROJECT_DIR$/src/docs/guide/3. Cookbook.gdoc" />
     </list>
     <ignored path="website-optimizer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,19 +92,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2.2. Setting up a Multi-variate Test.gdoc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/docs/guide/2.2. Setting up a Multi-variate Test.gdoc">
+      <file leaf-file-name="3. Cookbook.gdoc" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/docs/guide/3. Cookbook.gdoc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="189" selection-start="2279" selection-end="2279" vertical-scroll-proportion="0.0">
+            <state line="55" column="74" selection-start="1921" selection-end="1921" vertical-scroll-proportion="0.8309179">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="3. Cookbook.gdoc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/docs/guide/3. Cookbook.gdoc">
+      <file leaf-file-name="1. Introduction.gdoc" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/docs/guide/1. Introduction.gdoc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="191" selection-start="1805" selection-end="1885" vertical-scroll-proportion="0.0">
+            <state line="7" column="17" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -162,10 +164,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebsiteOptimizerGrailsPlugin.groovy" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="WebsiteOptimizerGrailsPlugin.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebsiteOptimizerGrailsPlugin.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="41" selection-start="388" selection-end="388" vertical-scroll-proportion="0.11214953">
+            <state line="30" column="200" selection-start="914" selection-end="914" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -203,10 +205,11 @@
         <option value="$PROJECT_DIR$/src/docs/guide/2.1. Setting up an AB Test.gdoc" />
         <option value="$PROJECT_DIR$/src/docs/guide/2.2. Setting up a Multi-variate Test.gdoc" />
         <option value="$PROJECT_DIR$/src/docs/guide/4. Further Reading.gdoc" />
-        <option value="$PROJECT_DIR$/src/docs/guide/3. Cookbook.gdoc" />
         <option value="$PROJECT_DIR$/grails-app/taglib/grails/plugin/gwo/WebsiteOptimizerTagLib.groovy" />
         <option value="$PROJECT_DIR$/test/unit/grails/plugin/gwo/WebsiteOptimizerTagLibSpec.groovy" />
         <option value="$PROJECT_DIR$/WebsiteOptimizerGrailsPlugin.groovy" />
+        <option value="$PROJECT_DIR$/src/docs/guide/3. Cookbook.gdoc" />
+        <option value="$PROJECT_DIR$/src/docs/guide/1. Introduction.gdoc" />
       </list>
     </option>
   </component>
@@ -274,12 +277,18 @@
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="unit" />
+              <option name="myItemId" value="website-optimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="website-optimizer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gwo" />
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -293,7 +302,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -677,6 +690,18 @@
         <option name="PhingTarget" enabled="false" />
       </method>
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+        <option name="PhingTarget" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" />
       <module name="" />
@@ -777,8 +802,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2485" sideWeight="0.6821782" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31782177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2485" sideWeight="0.66138613" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33861387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -840,13 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/docs/guide/1. Introduction.gdoc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="55" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.spockframework/spock-core/jars/spock-core-0.5-groovy-1.7.jar!/spock/lang/Specification.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="0" selection-start="1508" selection-end="1508" vertical-scroll-proportion="-20.68">
@@ -903,13 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/docs/guide/3. Cookbook.gdoc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="191" selection-start="1805" selection-end="1885" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.spockframework/spock-grails-support/jars/spock-grails-support-0.5-groovy-1.7.jar!/grails/plugin/spock/TagLibSpec.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="1" selection-start="1185" selection-end="1185" vertical-scroll-proportion="-15.6">
@@ -940,7 +951,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebsiteOptimizerGrailsPlugin.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="41" selection-start="388" selection-end="388" vertical-scroll-proportion="0.11214953">
+        <state line="30" column="200" selection-start="914" selection-end="914" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/docs/guide/1. Introduction.gdoc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="17" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/docs/guide/3. Cookbook.gdoc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="74" selection-start="1921" selection-end="1921" vertical-scroll-proportion="0.8309179">
           <folding />
         </state>
       </provider>
