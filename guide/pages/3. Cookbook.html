@@ -5,6 +5,16 @@
         <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
     </head>
     <body class="body">
-    <h2>Coming soon</h2>
+    <h3>Calling conversions via JavaScript</h3><p class="paragraph"/>Often, we want a conversion event to fire based on a button being clicked on a page instead of just tracking the conversion event on page load.<p class="paragraph"/>The plugin offers a property within the conversion tag that would wrap the conversion event in a javaScript function.<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;gwo:conversion functionName=<span class="xml&#45;quote">"trackConversion"</span> account=<span class="xml&#45;quote">"UA&#45;..."</span> experiment=<span class="xml&#45;quote">"..."</span>/&#62;</span></pre></div><p class="paragraph"/>In your button or link, you can then do the following:<p class="paragraph"/><div class="code"><pre>&#60;g:link onClick=<span class="java&#45;quote">"trackConversion()"</span> &#8230; &#62;</pre></div><p class="paragraph"/><h3>Loading only the views you need</h3><p class="paragraph"/>In multivariate testing, you can load views that you need via the following Ajax technique.<p class="paragraph"/>Create a div that will contain the view you want to load.<p class="paragraph"/><div class="code"><pre><span class="xml&#45;tag">&#60;div id=<span class="xml&#45;quote">"bookingForm"</span>&#62;</span><span class="xml&#45;tag">&#60;/div&#62;</span></pre></div><p class="paragraph"/>Use sections to define the an alternative,<p class="paragraph"/><div class="code"><pre>&#60;gwo:section name=<span class="java&#45;quote">"setAlternative"</span>&#62;
+    &#60;script&#62; <span class="java&#45;keyword">var</span> alternative = 'bookingForm'; &#60;/script&#62;
+&#60;/gwo:section&#62;</pre></div><p class="paragraph"/>Create an Ajax block to load content based on the selected alternative. This should live outside of the gwo:section blocks<p class="paragraph"/><div class="code"><pre><div class="error">code: null</div><p class="paragraph"/>&#60;script&#62;
+$(document).ready(function() {
+	if( alternative == 'bookingForm' ){
+		&#60;g:remoteFunction action="show" id="1" update="bookingForm"/&#62;
+	} else if( alternative == 'bookingForm2' ){
+		&#60;g:remoteFunction action="show2" id="1" update="bookingForm"/&#62;
+	}
+});
+&#60;/script&#62;<p class="paragraph"/>{/code}<p class="paragraph"/>Even though this means an additional request is called on the page, it means that you don't have to load your page alternatives on page start.<p class="paragraph"/>You can use a similar technique to toggle CSS files that are optimized by UI-performance or resource plugin using document.write().<p class="paragraph"/><h3>Setting Conversions based on time On Page</h3><p class="paragraph"/><p class="paragraph"/><h3>Dynamic URLs for A/B tests</h3><p class="paragraph"/>At this time, the plugin does not offer any support for dynamic URLs in A/B tests. Please refer to <a href="http://www.google.com/support/websiteoptimizer/bin/answer.py?hl=en&answer=186014" target="blank">this guide</a> on how to implement this.
     </body>
 </html>
