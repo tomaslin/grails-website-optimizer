@@ -20,14 +20,14 @@ h2. Examples
 <!-- you can set the experiment and GWO accounts in this tag -->
 <gwo:include account="UA-93499449-1" experiment="499449494" multi="true"/>
 
-<!-- you can also define domains used by the a/b experiment so it only counts for those -->
-<gwo:include multi='true' domain='blah.example.com'/>
-
 {code}
 
 h2. Description
 
 Attributes
 
-* @value@ (required) - The caption of the button and name of action when not explicitly defined.
-* @action@ (optional) - The name of the action to be executed, otherwise it is derived from the value.
+* @control@ (optional) - Includes the tags of a A/B test control.
+* @multi@ (optional) - Includes the tags for a control and tracking tag for multivariate tests.
+* @variation@ (optional) - Includes the tags on a A/B test variation
+* @account@(optional) - overrides the account used, if not set, uses gwo.account defined in config.groogy
+* @experiment@(optional) - specifies the experiment to test, if not set, uses gwo.defaultExperiment defined in config.groogy

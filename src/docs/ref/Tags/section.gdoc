@@ -1,0 +1,20 @@
+h1. section
+
+h2. Purpose
+
+Identify sections within Google Website Optimizer Multivariate tests.
+
+
+h2. Examples
+
+{code:xml}
+<gwo:section name="booking">
+    content here
+</gwo:section>
+{code}
+
+h2. Description
+
+Attributes
+
+* @name@(required) - The name for this section.

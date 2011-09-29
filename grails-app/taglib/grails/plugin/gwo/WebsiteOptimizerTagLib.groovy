@@ -103,14 +103,14 @@ ${ functionName && !functionName.empty ? "function ${ functionName }(){ " : '' }
   var _gaq = _gaq || [];
   _gaq.push(['gwo._setAccount', '${ account }']);"""
 
-		if (timeOut > 0)
+		if (time > 0)
 		{
 			out << """setTimeout(function() { """
 		}
 
 		out << """_gaq.push(['gwo._trackPageview', '/${ experiment }/goal']);"""
 
-		if (timeOut > 0)
+		if (time > 0)
 		{
 			out << """  }, ${ time }); """
 		}

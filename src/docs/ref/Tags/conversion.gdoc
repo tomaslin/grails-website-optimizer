@@ -1,0 +1,29 @@
+h1. Conversion
+
+h2. Purpose
+
+Tracks a conversion event within Google Website Optimizer.
+
+h2. Examples
+
+{code:xml}
+
+<gwo:conversion account="UA-93499449-1" experiment="499449494"/>
+
+<!-- You can also make this into a JavaScript function -->
+<gwo:conversion account="UA-93499449-1" experiment="499449494" functionName="trackConversion"/>
+
+<!-- Only track a conversion after the user has been on a page for a certain amount of time, time is in milliseconds -->
+<gwo:conversion account="UA-93499449-1" experiment="499449494" time="5000"/>
+
+
+{code}
+
+h2. Description
+
+Attributes
+
+* @account@(optional) - overrides the account used, if not set, uses gwo.account defined in config.groovy
+* @experiment@(optional) - specifies the experiment to test, if not set, uses gwo.defaultExperiment defined in config.groovy
+* @functionName@(optional) - when specified, wraps the conversion event into a javascript function. This is useful when you want the conversion event to be triggered on a button click.
+* @time@(optional) - when specified, only fires the conversion event after the user has been on the page for this amount of time.

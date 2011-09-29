@@ -1,0 +1,55 @@
+This type of tests work better with scenarios where there are pieces of code that you wish to change within the same page, or changes scattered around several pages. 
+
+In Grails terms, these work best when you have to make changes to things that would normally go into templates.
+
+h3. Set up an experiment
+
+* Login to your GWO account and select Experiments > Create another experiment
+* Choose Multivariate Experiment - The most robust way to test lots of ideas
+* Run through the checklist and click on "I've completed the steps above checkbox"
+* Click on "Create"
+* Fill in all the fields in the page 
+* Click on "Continue"
+* Select 'You will install and validate the JavaScript tags'
+
+h3. Get your account and experiment ids.
+
+This procedure is the same as the one for A/B tests above except the control and tracking scripts are now merged into one on the page. 
+
+h3. Add your tags
+
+h4. Add tracking tags
+
+On your main testing page, you want to set an include tag with the multi section set to true
+
+{code:xml}
+<gwo:include account='UA-25983867-2' experiment='0156495775'/>
+
+And on your conversion pages, you want the following:
+
+{code:xml}
+<gwo:conversion account='UA-25983867-2' experiment='0156495775'/>
+{code}
+
+h4. Define sections
+
+What makes a multivariate test different than a standard A/B test is that GWO allows you to define alternative content for individual sections on the page. You then create combinations of these alternatives within your tests to see which ones perform best. 
+
+To define a section to be tested, simply give it a name and surround it with the gwo:section tag. For example
+
+{code:xml}
+<gwo:section name='bookingForm'>
+   Booking Form
+   <g:include controller="booking" action="make"/>
+</gwo:section>
+{code}
+
+h3. Validate your pages. 
+
+You can validate your pages by saving a local copy of your application page's HTML source. 
+
+At this point, you have identified the sections on your page you wish modify for multivariate testing. 
+
+You can use the tools provided by Website optimizer to create and modify variations at this point. 
+
+Within GWO, you can now define alternatives for the different sections you wish to test. Please refer to one of the books pointed in the Further reading section for how to use this feature.

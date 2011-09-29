@@ -1,0 +1,5 @@
+This plugin wraps the JavaScript code used by Google Website Optimizer (GWO) into Grails tags under the namespace gwo.
+
+Before you start, you need to have a [Google Analytics|http://www.google.com/analytics/] account set up for your site and enable website optimizer by visiting the [GWO site|http://www.google.com/websiteoptimizer/].
+
+For a discussion on when to use an AB test and when to use an Multivariate test, please refer to the resources from the further reading. 
