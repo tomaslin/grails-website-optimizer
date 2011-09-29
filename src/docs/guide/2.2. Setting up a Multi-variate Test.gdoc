@@ -24,6 +24,7 @@ On your main testing page, you want to set an include tag with the multi section
 
 {code:xml}
 <gwo:include account='UA-25983867-2' experiment='0156495775'/>
+{code}
 
 And on your conversion pages, you want the following:
 
