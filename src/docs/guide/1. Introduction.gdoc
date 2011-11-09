@@ -5,5 +5,7 @@ It is best used for testing changes in the view layer, as Google Website Optimiz
 The plugin does not provide any reporting integration. You would still need to access your google analytics account to see the results of your A/B tests and to create new experiments
 
 h4. Release History
+* Nov 9, 2011.
+** Added replaceUrl Tag
 * Sept 29, 2011.
 ** initial 0.1 release

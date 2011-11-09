@@ -1,7 +1,6 @@
 package grails.plugin.gwo
 
 import grails.plugin.spock.TagLibSpec
-import com.sun.javaws.exceptions.InvalidArgumentException
 
 class WebsiteOptimizerTagLibSpec extends TagLibSpec {
 
@@ -64,7 +63,7 @@ d.write('<sc'+'ript src="'+
 
 	}
 
-	def "conversion tag is set correctly for A/B tests"() {
+	def "conversion tag is set correctly for AB tests"() {
 
 		setup:
 		mockConfig ''
@@ -218,6 +217,57 @@ setTimeout(function() {
 		def e = thrown(IllegalArgumentException)
 		e.message == 'Tag gwo:section is missing required attribute name'
 
+	}
+
+	def "Url replace throws exception if values are not set"() {
+
+		when:
+		replaceUrl()
+
+		then:
+		def e = thrown(IllegalArgumentException)
+		e.message == 'Tag gwo:replaceUrl is missing required attribute values'
+
+	}
+
+
+	def "URL values are replaced correctly by replace url"() {
+
+		setup:
+		mockConfig ''
+
+		expect:
+		replaceUrl( values: [ 'one' : 'two' ] ) == '''<!-- utmx section name="page-url" -->
+<script>
+var b = utmx('variation_content', 'page-url');
+function filter(v) {
+  var u = v[0].contents;
+  if (b && u.substr(0,7) == 'http://' && b.substr(0, 7) != 'http://') {
+		u = u.substr(7);
+  }
+
+  var l = document.location.href;
+  u = u.replace('one', 'two');
+
+  return u;
+}
+utmx('url', 'page-url', 0, filter);
+</script>
+'''
+
+	}
+
+	def 'url replace handles multiple replacement'(){
+		setup:
+			mockConfig ''
+
+		when:
+			def replaceScript = replaceUrl( values: [ '1' : 'one', '2': 'two', '3': 'three' ] )
+
+		then:
+			replaceScript.contains( '''u = u.replace('1', 'one');''' )
+			replaceScript.contains( '''u = u.replace('2', 'two');''' )
+			replaceScript.contains( '''u = u.replace('3', 'three');''' )
 	}
 
 

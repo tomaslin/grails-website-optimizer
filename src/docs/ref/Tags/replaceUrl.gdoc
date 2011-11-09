@@ -1,0 +1,27 @@
+h1. ReplaceUrl
+
+h2. Purpose
+
+This tag enables you to change dynamic url content for multi-variate tests.
+
+Often, you need to test dynamically generated url strings, for example http://www.myexample.com/PRODUCT/
+
+With GWO, you are able to do this via the page-url mechanism described in this article - http://www.google.com/support/websiteoptimizer/bin/answer.py?hl=en&answer=186014.
+
+This tag simplifies the process by allowing you to define the values to be replaced in the page URL.
+
+h2. Examples
+
+{code:xml}
+
+<gwo:replaceUrl values="[ 'one' : 'two' ]"/>
+
+<gwo:replaceUrl values="[ 'two' : 'three', 'three':'four' ]"/>
+
+{code}
+
+h2. Description
+
+Attributes
+
+* @values - the set of values to replace

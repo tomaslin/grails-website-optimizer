@@ -137,5 +137,37 @@ out<< """
 
 	}
 
+	def replaceUrl = { attrs ->
+		if (!attrs.values)
+		{
+			throw new IllegalArgumentException('Tag gwo:replaceUrl is missing required attribute values')
+		}
+
+out<<"""<!-- utmx section name="page-url" -->
+<script>
+var b = utmx('variation_content', 'page-url');
+function filter(v) {
+  var u = v[0].contents;
+  if (b && u.substr(0,7) == 'http://' && b.substr(0, 7) != 'http://') {
+		u = u.substr(7);
+  }
+
+  var l = document.location.href;"""
+
+		attrs.values.each{ k, v ->
+out<<"""
+  u = u.replace('$k', '$v');
+"""
+		}
+
+out<<"""
+  return u;
+}
+utmx('url', 'page-url', 0, filter);
+</script>
+"""
+
+	}
+
 }
 
