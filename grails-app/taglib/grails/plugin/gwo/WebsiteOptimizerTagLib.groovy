@@ -99,15 +99,14 @@ d.write('<sc'+'ript src="'+
 		}
 
 		out << """<!-- Google Website Optimizer Tracking Script -->
-<script type="text/javascript">"""
-
-		if( functionName ){
-			out << """function ${functionName}(){"""
-		}
-
-out<< """
+<script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['gwo._setAccount', '${account}']);"""
+
+		if( functionName ){
+			out << """
+function ${functionName}(){"""
+		}
 
 		if( time > 0 ){
 			out << """
@@ -123,7 +122,10 @@ out<<"""
 		}
 
 		if( functionName ){
-			out << """}"""
+			out << """
+  return true;
+}
+"""
 		}
 
 out<< """
